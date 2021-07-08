@@ -10,9 +10,9 @@ These commands allow you to convert certificates and keys to different formats t
 openssl x509 -inform der -in certificate.cer -out certificate.pem
 ```
 
-- Convert a PEM file to DER
+- Convert a PEM file to crt
 ```bash
-openssl x509 -outform der -in certificate.pem -out certificate.der
+openssl crl2pkcs7 -nocrl -certfile certificate.pem | openssl pkcs7 -print_certs -out certificate.crt
 ```
 
 - Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM
